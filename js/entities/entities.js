@@ -10,6 +10,8 @@ game.PlayerEntity = me.Entity.extend({
                     return(new me.Rect(0, 0, 64, 64)).toPolygon();
                 }
             }]);
+        this.type = "PlayerEntity";
+        this.health = 20;
         this.body.setVelocity(5, 20);
         //keeps track of width direction your characters is going 
         this.facing = "right";
@@ -25,6 +27,7 @@ game.PlayerEntity = me.Entity.extend({
         this.renderable.setCurrentAnimation("idle")
     },
     update: function(delta) {
+        
         this.now = new Date().getTime();
         if (me.input.isKeyPressed("right")) {
             //sets the position of my x by adding the velocity defined above in 
@@ -79,6 +82,11 @@ game.PlayerEntity = me.Entity.extend({
         return true;
     },
     
+    loseHealth: function(damage){
+        this.health = this.health - damage;
+        console.log(this.health);
+    },                                                                                                                         
+    
     collideHandler: function(response){
         if(response.b.type==='EnemyBaseEntity'){
             var ydif = this.pos.y - response.b.pos.y;
@@ -104,7 +112,8 @@ game.PlayerEntity = me.Entity.extend({
                 response.b.loseHealth();
        }
         }
-    }
+        }
+    
  });
 
 game.PlayerBaseEntity = me.Entity.extend({
@@ -122,8 +131,7 @@ game.PlayerBaseEntity = me.Entity.extend({
         this.broken = false;
         this.health = 10;
         this.alwaysUpdate = true;
-        this.body.onCollision = this.onCollision.bind(this)
-
+        this.body.onCollision = this.onCollision.bind(this);
         this.type = "PlayerBase";
 
         this.renderable.addAnimation("idle", [0]);
@@ -223,11 +231,11 @@ game.EnemyCreep = me.Entity.extend({
     },
     
     update: function(delta){
-        this.now = new Date().getTime;
+        this.now = new Date().getTime();
         
         this.body.vel.x -= this.body.accel.x * me.timer.tick;
         
-        me.collision.check(this, true, this.coolideHandler.bind(this), true);
+        me.collision.check(this, true, this.collideHandler.bind(this), true);
         
         this.body.update(delta);
         
@@ -240,13 +248,30 @@ game.EnemyCreep = me.Entity.extend({
     
     collideHandler: function(response){
         if(response.b.type==='PlayerBase'){
-           this.attacking=true; 
+           var xdif = this.pos.x - response.b.pos.x;
+            
+            this.attacking=true;
+            this.lastAttacking=this.now;
+            
+           if(xdif>0){
+           this.pos.x = this.pos.x + 1;
+           
+       }
+           if((this.now-this.lastHit >= 1000) && xdif>0){
+              this.lastHit =  this.now;
+              response.b.loseHealth(1);
+           }
+        }else if(response.b.type==='PlayerEntity'){
+            this.attacking=true; 
+            var xdif = this.pos.x - response.b.pos.x;
+            
            this.lastAttack=this.now;
            this.body.vel.x = 0;
            this.pos.x = this.pos.x + 1;
            if((this.now-this.lastHit >= 1000)){
               this.lastHit =  this.now;
-              reponse.b.loseHealth(1);
+              response.b.loseHealth(1);
+              
            }
         }
     }
