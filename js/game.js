@@ -10,14 +10,21 @@ var game = {
                 playerBaseHealth: 10,
                 enemyCreepHealth:10,
                 playerHealth: 10, 
-                enemyCreepttack: 1,
+                enemyCreepAttack: 1,
                 playerAttack: 1,
                 playerAttackTimer: 1000,
                 creepAttackTimer: 1000,
                 playerMoveSpeed: 5,
                 creepMoveSpeed: 5,
                 gameManager: "",
-                player: ""
+                player: "",
+                exp: 0,
+                gold: 0,
+                exp1: 0, 
+                exp2: 0,
+                exp3: 0,
+                exp4: 0,
+                
                 
 	},
 	
