@@ -2,7 +2,7 @@ game.PlayerEntity = me.Entity.extend({
     init: function(x, y, settings) {
         this.setSuper(x, y);
         this.setPlayerTimers();
-        this.setAttribute();
+        this.setAttributes();
         this.type = "PlayerEntity";
         this.setFlags();
         //keeps track of width direction your characters is going 
@@ -55,8 +55,8 @@ game.PlayerEntity = me.Entity.extend({
     
     update: function(delta) {
         this.now = new Date().getTime();       
-        this.dead = checkIfDead();
-        this.checkKeyPressedAndMove();
+        this.dead = this.checkIfDead();
+        this.checkKeyPressesAndMove();
         this.setAnimation();
         me.collision.check(this, true, this.collideHandler.bind(this), true);
         this.body.update(delta);
