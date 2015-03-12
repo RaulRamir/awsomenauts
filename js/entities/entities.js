@@ -143,7 +143,26 @@ game.PlayerEntity = me.Entity.extend({
    },
    
    collideWithEnemyBase: function(response){
-       
+        var ydif = this.pos.y - response.b.pos.y;
+		var xdif = this.pos.x - response.b.pos.x;
+
+		if(ydif<-40 && xdif< 70 && xdif>-35){
+				this.body.falling = 	false;
+				this.body.vel.y = -1;
+		}
+			else if(xdif>-35 && this.facing==='right' && xdif<0){//
+				this.body.vel.x = 0;
+				//this.pos.x = this.pos.x -1;
+			}else if(xdif<70 && this.facing==='left' && xdif>0){//
+				this.body.vel.x = 0;
+				//this.pos.x = this.pos.x +1;
+			}
+
+			if(this.renderable.isCurrentAnimation("attack") && this.now-this.lastHit >= game.data.playerAttackTimer) {//makes the enemy tower destroyed with health 
+				console.log("tower Hit");
+				this.lastHit = this.now;
+				response.b.loseHealth(game.data.playerAttack);
+			}
    },
    
    collideWithEnemyCreep: function(response){      
@@ -152,7 +171,7 @@ game.PlayerEntity = me.Entity.extend({
             
             this.stopMovement(xdif);
             
-        if(this.checkAttacking(xdif, ydif)){
+        if(this.checkAttack(xdif, ydif)){
                 this.hitCreep(response);
         };
    },

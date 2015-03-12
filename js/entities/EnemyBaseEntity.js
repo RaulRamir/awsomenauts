@@ -7,7 +7,7 @@ game.EnemyBaseEntity = me.Entity.extend({
                 spritewidth: "100",
                 spriteheight: "100",
                 getShape: function() {
-                    return (new me.Rect(0, 0, 100, 85)).toPolygon();
+                    return (new me.Rect(0, 0, 100, 70)).toPolygon();
                 }
             }]);
         this.broken = false;
@@ -22,7 +22,7 @@ game.EnemyBaseEntity = me.Entity.extend({
         this.renderable.setCurrentAnimation("idle");
     },
     update: function(delta) {
-        if (this.health <= 0) {
+        if (this.health <=0) {
             this.broken = true;
             game.data.win = true;
             this.renderable.setCurrentAnimation("broken");
@@ -36,8 +36,8 @@ game.EnemyBaseEntity = me.Entity.extend({
     onCollision: function() {
 
    },
-    loseHealth: function() {
-        this.health--;
+    loseHealth: function(damage) {
+        this.health -= damage;
     }
 
 });
