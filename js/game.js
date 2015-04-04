@@ -54,14 +54,12 @@ var game = {
 		});
 	}
 
-        me.save.add({exp: 0, exp1: 0, exp2: 0, exp3: 0, exp4: 0});
-
         me.state.SPENDEXP = 112;
         me.state.LOAD = 113;
         me.state.NEW = 114;
 
 	// Initialize the audio.
-	me.audio.init("mp3,ogg");
+	//me.audio.init("mp3,ogg");
 
 	// Set a callback to run when loading is complete.
 	me.loader.onload = this.loaded.bind(this);

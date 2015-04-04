@@ -3,16 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/xampp/htdocs/RaulRAwesomenauts/js/screens/play.js</file>
             <file>file:/C:/xampp/htdocs/RaulRAwesomenauts/index.php</file>
             <file>file:/C:/xampp/htdocs/RaulRAwesomenauts/js/game.js</file>
             <file>file:/C:/xampp/htdocs/RaulRAwesomenauts/js/gamemanagers/GameManager.js</file>
             <file>file:/C:/xampp/htdocs/RaulRAwesomenauts/js/screens/spendExp.js</file>
-            <file>file:/C:/xampp/htdocs/RaulRAwesomenauts/js/screens/loadProfile.js</file>
-            <file>file:/C:/xampp/htdocs/RaulRAwesomenauts/js/screens/title.js</file>
             <file>file:/C:/xampp/htdocs/RaulRAwesomenauts/js/screens/newProfile.js</file>
+            <file>file:/C:/xampp/htdocs/RaulRAwesomenauts/js/entities/entities.js</file>
             <file>file:/C:/xampp/htdocs/RaulRAwesomenauts/js/resources.js</file>
-            <file>file:/C:/xampp/htdocs/RaulRAwesomenauts/js/gamemanagers/HeroDeathManagers.js</file>
-            <file>file:/C:/xampp/htdocs/RaulRAwesomenauts/js/gamemanagers/SpendGold.js</file>
+            <file>file:/C:/xampp/htdocs/RaulRAwesomenauts/index.css</file>
         </group>
     </open-files>
 </project-private>
