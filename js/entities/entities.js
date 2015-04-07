@@ -126,7 +126,7 @@ game.PlayerEntity = me.Entity.extend({
         if(this.lastSpear >= game.data.spearTimer && game.data.ability3 >=0){
             this.lastSpear = this.now;
             var spear = me.pool.pull("spear", this.pos.x, this.pos.y, {});
-            me.game.world.addChild(creepe, 5);
+            me.game.world.addChild(spear, 10);
         }
         },
     
