@@ -17,6 +17,7 @@ game.resources = [
           {name: "new-screen", type:"image", src: "data/img/newpic.png"},
           {name: "new-screen", type:"image", src: "data/img/newpic.png"},
           {name: "spear", type:"image", src: "data/img/spear.png"},
+           {name: "smallmap", type:"image", src: "data/img/smallmap.png"},
 	/* Atlases 
 	 * @example
 	 * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},
