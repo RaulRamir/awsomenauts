@@ -87,6 +87,7 @@ var game = {
                 me.pool.register("SpendGold", game.SpendGold);
                 me.pool.register("spear", game.SpearThrow);
                 me.pool.register("smallmap", game.SmallMap, true);
+                me.pool.register("miniplayer", game.MiniMapLocation, true);
                 
 		me.state.set(me.state.MENU, new game.TitleScreen());
 		me.state.set(me.state.PLAY, new game.PlayScreen());
