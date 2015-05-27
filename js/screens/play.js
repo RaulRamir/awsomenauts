@@ -3,7 +3,7 @@ game.PlayScreen = me.ScreenObject.extend({
 	 *  action to perform on state change
 	 */
 	onResetEvent: function() {
-            //me.audio.playTrack("mario");
+            me.audio.playTrack("mario");
 		// reset the score
 		game.data.score = 0;
                 me.levelDirector.loadLevel("level01");
@@ -46,7 +46,7 @@ game.PlayScreen = me.ScreenObject.extend({
 	 */
 	onDestroyEvent: function() {
             
-           // me.audio.stopTrack();
+               me.audio.stopTrack();
 		// remove the HUD from the game world
 		me.game.world.removeChild(this.HUD);
 	},

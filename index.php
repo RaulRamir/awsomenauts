@@ -59,7 +59,7 @@
                 <script type="text/javascript" src="js/gamemanagers/SpendGold.js"></script>
                 <script type="text/javascript" src="js/gamemanagers/HeroDeathManagers.js"></script>
                 <script type="text/javascript" src="js/entities/EnemyCreep.js"></script>
-		<script type="text/javascript" src="js/entities/HUD.js"></script>
+		
                 <script type="text/javascript" src="js/entities/SpearThrow.js"></script>
                  <script type="text/javascript" src="js/entities/SmallMap.js"></script>
                  <script type="text/javascript" src="js/entities/MiniMapLocation.js"></script>
@@ -136,6 +136,7 @@
                          if(response==="Invalid username and Password"){
                              alert(response);
                          }else{
+                             alert(response);
                              var data = jQuery.parseJSON(response);
                              game.data.exp = data("exp");
                              game.data.exp1 = data("exp1");
