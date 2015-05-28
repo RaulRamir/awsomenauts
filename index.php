@@ -69,7 +69,6 @@
                 <script type="text/javascript" src="js/screens/spendExp.js"></script>
                 <script type="text/javascript" src="js/screens/loadProfile.js"></script>
                 <script type="text/javascript" src="js/screens/newProfile.js"></script>
-		<!-- /build -->
 		<!-- Bootstrap & Mobile optimization tricks -->
 		<script type="text/javascript">
 			window.onReady(function onReady() {
@@ -149,6 +148,33 @@
                 .fail(function(response){
                     alert("Fail");
                 });
+                });
+                </script>
+                
+                <script>
+                $("#mainmenu").bind("click", function(){
+                  me.state.change(me.sate.MENU); 
+                });
+                $("#register").bind("click", function(){
+                  $.ajax({
+                      type: "POST",
+                      url: "php/controller/create-user.php",
+                      data: {
+                          username: $('#username').val(),
+                          password: $('#password').val()
+                      },
+                      dataType: "text"
+                  })
+                  .success(function(response){
+                      if(response==="true"){
+                         me.state.change(me.state.PLAY);
+                      }else{
+                          alert(response);
+                      }
+                  })
+                  .fail(function(response){
+                       alert("Fail");
+                  })
                 });
                 </script>
 	</body>
